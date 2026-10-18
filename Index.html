@@ -1,0 +1,444 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adetunji Darasimi | Learning Hub</title><style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #202b3c;
+    line-height: 1.6;
+}
+
+header {
+    background: #102a43;
+    color: white;
+    padding: 22px 6%;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 28px;
+}
+
+nav {
+    background: #176b87;
+    padding: 13px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 8px;
+    font-weight: bold;
+}
+
+.hero {
+    background: linear-gradient(135deg, #176b87, #38a3a5);
+    color: white;
+    text-align: center;
+    padding: 65px 20px;
+}
+
+.hero h2 {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+button {
+    background: #ffca3a;
+    color: #102a43;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 35px 20px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #102a43;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 22px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px #00000012;
+}
+
+.card h3 {
+    color: #176b87;
+    margin-bottom: 10px;
+}
+
+.card button {
+    background: #176b87;
+    color: white;
+}
+
+.lesson {
+    background: white;
+    padding: 25px;
+    margin-top: 25px;
+    border-radius: 12px;
+}
+
+.lesson h3 {
+    color: #176b87;
+    margin-bottom: 10px;
+}
+
+select {
+    padding: 12px;
+    width: 100%;
+    max-width: 400px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+#lessonContent {
+    margin-top: 20px;
+    white-space: pre-line;
+}
+
+.quiz {
+    background: #e3f2fd;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+footer {
+    background: #102a43;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 35px;
+}
+
+@media (max-width: 600px) {
+    .hero h2 {
+        font-size: 25px;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 5px;
+    }
+}
+</style></head><body><header>
+    <h1>Adetunji Darasimi</h1>
+    <p>Mathematics & Science Learning Hub</p>
+</header><nav>
+    <a href="#home">Home</a>
+    <a href="#subjects">Subjects</a>
+    <a href="#lessons">Lessons</a>
+    <a href="#practice">Practice</a>
+</nav><section class="hero" id="home">
+    <h2>Welcome to Your Learning Journey!</h2>
+    <p>Understand difficult topics, practise your skills, and grow in confidence.</p>
+    <button onclick="document.getElementById('subjects').scrollIntoView({behavior:'smooth'})">
+        Start Learning
+    </button>
+</section><section class="container" id="subjects">
+    <h2 class="section-title">Explore Our Subjects</h2><div class="cards">
+    <div class="card">
+        <h3>📐 Mathematics</h3>
+        <p>Numbers, fractions, algebra, equations, geometry, statistics, and more.</p>
+        <button onclick="openLesson('math')">Explore Mathematics</button>
+    </div>
+
+    <div class="card">
+        <h3>🧪 Chemistry</h3>
+        <p>Atoms, elements, chemical reactions, acids, bases, and calculations.</p>
+        <button onclick="openLesson('chemistry')">Explore Chemistry</button>
+    </div>
+
+    <div class="card">
+        <h3>⚡ Physics</h3>
+        <p>Motion, force, energy, electricity, waves, and measurements.</p>
+        <button onclick="openLesson('physics')">Explore Physics</button>
+    </div>
+
+    <div class="card">
+        <h3>🧬 Biology</h3>
+        <p>Cells, nutrition, genetics, ecology, and the human body.</p>
+        <button onclick="openLesson('biology')">Explore Biology</button>
+    </div>
+</div>
+
+</section><section class="container" id="lessons">
+    <h2 class="section-title">Learn a Topic</h2><label for="topic"><strong>Choose a lesson:</strong></label>
+<br>
+
+<select id="topic" onchange="showLesson()">
+    <option value="">-- Select a topic --</option>
+    <option value="math">Mathematics: Linear Equations</option>
+    <option value="chemistry">Chemistry: Atoms and Elements</option>
+    <option value="physics">Physics: Force and Motion</option>
+    <option value="biology">Biology: The Cell</option>
+</select>
+
+<div class="lesson" id="lessonContent">
+    <h3>Your lesson will appear here.</h3>
+    <p>Select a topic from the menu above to begin learning.</p>
+</div>
+
+</section><section class="container" id="practice">
+    <h2 class="section-title">Test Your Knowledge</h2><div class="quiz">
+    <h3 id="question">What is 5 + 7?</h3>
+
+    <div id="options">
+        <p><label><input type="radio" name="answer" value="10"> 10</label></p>
+        <p><label><input type="radio" name="answer" value="12"> 12</label></p>
+        <p><label><input type="radio" name="answer" value="14"> 14</label></p>
+    </div>
+
+    <button onclick="checkAnswer()">Check Answer</button>
+    <button onclick="nextQuestion()">Next Question</button>
+
+    <p id="feedback" aria-live="polite"></p>
+    <p id="score">Score: 0</p>
+</div>
+
+</section><footer>
+    <p>© 2026 Adetunji Darasimi Learning Hub</p>
+    <p>Learn something new every day!</p>
+</footer><script>
+const lessons = {
+    math: {
+        title: "Linear Equations",
+        content: `A linear equation is an equation in which the highest power of the variable is 1.
+
+Example:
+Solve x + 5 = 12.
+
+Step 1: Subtract 5 from both sides.
+x + 5 - 5 = 12 - 5
+
+Step 2: Simplify.
+x = 7
+
+Answer: x = 7
+
+Try this: Solve x + 3 = 10.`
+    },
+
+    chemistry: {
+        title: "Atoms and Elements",
+        content: `An atom is the smallest unit of an element that retains its chemical identity.
+
+An atom contains:
+1. Protons: positively charged particles.
+2. Neutrons: particles with no electrical charge.
+3. Electrons: negatively charged particles.
+
+An element is a pure substance made up of only one type of atom.
+
+Examples include oxygen, hydrogen, iron, and carbon.
+
+Remember: The atomic number equals the number of protons.`
+    },
+
+    physics: {
+        title: "Force and Motion",
+        content: `A force is a push or pull that can change an object's motion or shape.
+
+The SI unit of force is the newton (N).
+
+Newton's second law:
+Force = mass × acceleration
+
+F = ma
+
+Example:
+Mass = 2 kg
+Acceleration = 3 m/s²
+
+Force = 2 × 3 = 6 N.
+
+Answer: 6 newtons.`
+    },
+
+    biology: {
+        title: "The Cell",
+        content: `A cell is the basic structural and functional unit of life.
+
+Main cell structures:
+
+1. Cell membrane: controls what enters and leaves the cell.
+2. Cytoplasm: where many chemical reactions occur.
+3. Nucleus: contains genetic material in most cells.
+4. Mitochondria: release energy through cellular respiration.
+
+Plant cells also have a cell wall and chloroplasts.
+
+Remember: Cells form tissues, tissues form organs, and organs form organ systems.`
+    }
+};
+
+function showLesson() {
+    const selected = document.getElementById("topic").value;
+    const area = document.getElementById("lessonContent");
+
+    if (!selected) {
+        area.innerHTML = "<h3>Your lesson will appear here.</h3><p>Select a topic to begin.</p>";
+        return;
+    }
+
+    const lesson = lessons[selected];
+
+    area.innerHTML = "<h3>" + lesson.title + "</h3><p>" +
+        lesson.content.replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;") +
+        "</p>";
+}
+
+function openLesson(subject) {
+    document.getElementById("topic").value = subject;
+    showLesson();
+    document.getElementById("lessons").scrollIntoView({behavior: "smooth"});
+}
+
+const questions = [
+    {
+        question: "What is 5 + 7?",
+        options: ["10", "12", "14"],
+        answer: "12"
+    },
+    {
+        question: "What is the chemical symbol for oxygen?",
+        options: ["Ox", "O", "Oy"],
+        answer: "O"
+    },
+    {
+        question: "What is the SI unit of force?",
+        options: ["Joule", "Watt", "Newton"],
+        answer: "Newton"
+    },
+    {
+        question: "Which organelle releases energy during cellular respiration?",
+        options: ["Mitochondrion", "Cell wall", "Nucleus"],
+        answer: "Mitochondrion"
+    },
+    {
+        question: "Solve x + 3 = 10. What is x?",
+        options: ["7", "13", "3"],
+        answer: "7"
+    }
+];
+
+let currentQuestion = 0;
+let score = 0;
+let answered = false;
+
+function loadQuestion() {
+    const q = questions[currentQuestion];
+
+    document.getElementById("question").textContent = q.question;
+
+    document.getElementById("options").innerHTML = q.options.map(option =>
+        '<p><label><input type="radio" name="answer" value="' +
+        option + '"> ' + option + '</label></p>'
+    ).join("");
+
+    document.getElementById("feedback").textContent = "";
+    document.getElementById("score").textContent =
+        "Score: " + score + " / " + questions.length;
+
+    answered = false;
+}
+
+function checkAnswer() {
+    if (answered) {
+        document.getElementById("feedback").textContent =
+            "You've already answered this question. Choose Next Question.";
+        return;
+    }
+
+    const selected = document.querySelector('input[name="answer"]:checked');
+
+    if (!selected) {
+        document.getElementById("feedback").textContent =
+            "Please select an answer first.";
+        return;
+    }
+
+    answered = true;
+
+    if (selected.value === questions[currentQuestion].answer) {
+        score++;
+        document.getElementById("feedback").textContent = "Correct! Well done!";
+    } else {
+        document.getElementById("feedback").textContent =
+            "Not quite. The correct answer is " +
+            questions[currentQuestion].answer + ".";
+    }
+
+    document.getElementById("score").textContent =
+        "Score: " + score + " / " + questions.length;
+}
+
+function nextQuestion() {
+    currentQuestion++;
+
+    if (currentQuestion >= questions.length) {
+        document.getElementById("question").textContent =
+            "Quiz completed! Your final score is " +
+            score + " out of " + questions.length + ".";
+
+        document.getElementById("options").innerHTML = "";
+        document.getElementById("feedback").textContent =
+            score === questions.length
+            ? "Excellent work! You answered every question correctly."
+            : "Good effort! Review your lessons and try again.";
+
+        document.getElementById("score").textContent =
+            "Final score: " + score + " / " + questions.length;
+
+        const button = document.querySelector('#practice button:last-of-type');
+        button.textContent = "Restart Quiz";
+        button.onclick = restartQuiz;
+        return;
+    }
+
+    loadQuestion();
+}
+
+function restartQuiz() {
+    currentQuestion = 0;
+    score = 0;
+
+    const button = document.querySelector('#practice button:last-of-type');
+    button.textContent = "Next Question";
+    button.onclick = nextQuestion;
+
+    loadQuestion();
+}
+
+</script></body>
+  </html>
